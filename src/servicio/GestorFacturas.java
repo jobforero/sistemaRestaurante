@@ -8,10 +8,10 @@ import java.util.Optional;
 
 /**
  * Clase servicio para gestionar todas las operaciones relacionadas con facturas.
- * Proporciona métodos para generar, buscar y administrar facturas del restaurante.
+ * Proporciona metodos para generar, buscar y administrar facturas del restaurante.
  * 
- * @author José Castrellón
- * @version 2.0
+ * @author Grupo 1 Desarrollo Software
+ * @version 2.1
  * @since 2025
  */
 public class GestorFacturas {
@@ -34,11 +34,11 @@ public class GestorFacturas {
      * @param idPedido el ID del pedido a facturar
      * @param cliente el nombre del cliente
      * @return la factura generada, o null si el pedido no puede ser facturado
-     * @throws IllegalArgumentException si el cliente está vacío o el pedido no existe
+     * @throws IllegalArgumentException si el cliente esta vacio o el pedido no existe
      */
     public Factura generarFactura(int idPedido, String cliente) {
         if (cliente == null || cliente.trim().isEmpty()) {
-            throw new IllegalArgumentException("El nombre del cliente no puede estar vacío.");
+            throw new IllegalArgumentException("El nombre del cliente no puede estar vacio.");
         }
         
         Optional<Pedido> pedido = gestorPedidos.buscarPedidoPorId(idPedido);
@@ -47,7 +47,7 @@ public class GestorFacturas {
         }
         
         if (!gestorPedidos.pedidoPuedeSerFacturado(idPedido)) {
-            throw new IllegalStateException("El pedido no puede ser facturado. Verifique que esté pendiente y tenga productos.");
+            throw new IllegalStateException("El pedido no puede ser facturado. Verifique que este pendiente y tenga productos.");
         }
         
         Factura factura = new Factura(pedido.get(), cliente.trim());
@@ -56,10 +56,10 @@ public class GestorFacturas {
     }
     
     /**
-     * Busca una factura por su número.
+     * Busca una factura por su numero.
      * 
-     * @param numero el número de factura a buscar
-     * @return Optional con la factura encontrada o vacío si no existe
+     * @param numero el numero de factura a buscar
+     * @return Optional con la factura encontrada o vacio si no existe
      */
     public Optional<Factura> buscarFacturaPorNumero(int numero) {
         return facturas.stream()
@@ -106,7 +106,7 @@ public class GestorFacturas {
     }
     
     /**
-     * Calcula el total facturado para un cliente específico.
+     * Calcula el total facturado para un cliente especifico.
      * 
      * @param cliente el nombre del cliente
      * @return la suma total facturada al cliente
@@ -120,7 +120,7 @@ public class GestorFacturas {
     }
     
     /**
-     * Obtiene el número total de facturas generadas.
+     * Obtiene el numero total de facturas generadas.
      * 
      * @return el conteo total de facturas
      */
@@ -129,7 +129,7 @@ public class GestorFacturas {
     }
     
     /**
-     * Obtiene la factura con el monto más alto.
+     * Obtiene la factura con el monto mas alto.
      * 
      * @return la factura con el mayor total, o null si no hay facturas
      */
@@ -148,7 +148,7 @@ public class GestorFacturas {
     }
     
     /**
-     * Obtiene la factura con el monto más bajo.
+     * Obtiene la factura con el monto mas bajo.
      * 
      * @return la factura con el menor total, o null si no hay facturas
      */
@@ -167,7 +167,7 @@ public class GestorFacturas {
     }
     
     /**
-     * Verifica si existe una factura para un pedido específico.
+     * Verifica si existe una factura para un pedido especifico.
      * 
      * @param idPedido el ID del pedido a verificar
      * @return true si ya existe una factura para el pedido, false en caso contrario

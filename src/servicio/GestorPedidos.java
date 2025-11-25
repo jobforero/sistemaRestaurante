@@ -8,14 +8,15 @@ import java.util.Optional;
 
 /**
  * Clase servicio para gestionar todas las operaciones relacionadas con pedidos.
- * Proporciona métodos para crear, buscar y administrar pedidos del restaurante.
+ * Proporciona metodos para crear, buscar y administrar pedidos del restaurante.
  * 
- * @author José Castrellón
- * @version 2.0
+ * @author Grupo 1 Desarrollo Software
+ * @version 2.1
  * @since 2025
  */
 public class GestorPedidos {
     private List<Pedido> pedidos;
+    
     /**
      * Constructor que inicializa la lista de pedidos.
      */
@@ -24,7 +25,7 @@ public class GestorPedidos {
     }
     
     /**
-     * Crea un nuevo pedido vacío.
+     * Crea un nuevo pedido vacio.
      * 
      * @return el nuevo pedido creado
      */
@@ -39,7 +40,7 @@ public class GestorPedidos {
      * 
      * @param idPedido el ID del pedido
      * @param producto el producto a agregar
-     * @return true si se agregó exitosamente, false si el pedido no existe
+     * @return true si se agrego exitosamente, false si el pedido no existe
      */
     public boolean agregarProductoAPedido(int idPedido, Producto producto) {
         Optional<Pedido> pedido = buscarPedidoPorId(idPedido);
@@ -54,7 +55,7 @@ public class GestorPedidos {
      * Busca un pedido por su ID.
      * 
      * @param id el ID del pedido a buscar
-     * @return Optional con el pedido encontrado o vacío si no existe
+     * @return Optional con el pedido encontrado o vacio si no existe
      */
     public Optional<Pedido> buscarPedidoPorId(int id) {
         return pedidos.stream()
@@ -102,7 +103,7 @@ public class GestorPedidos {
     }
     
     /**
-     * Calcula el total de un pedido específico.
+     * Calcula el total de un pedido especifico.
      * 
      * @param idPedido el ID del pedido
      * @return el total calculado del pedido, o 0 si el pedido no existe
@@ -117,7 +118,7 @@ public class GestorPedidos {
      * 
      * @param idPedido el ID del pedido
      * @param nuevoEstado el nuevo estado del pedido
-     * @return true si se cambió exitosamente, false si el pedido no existe
+     * @return true si se cambio exitosamente, false si el pedido no existe
      */
     public boolean cambiarEstadoPedido(int idPedido, String nuevoEstado) {
         Optional<Pedido> pedido = buscarPedidoPorId(idPedido);
@@ -129,7 +130,7 @@ public class GestorPedidos {
     }
     
     /**
-     * Obtiene el número total de pedidos en el sistema.
+     * Obtiene el numero total de pedidos en el sistema.
      * 
      * @return el conteo total de pedidos
      */
@@ -138,7 +139,7 @@ public class GestorPedidos {
     }
     
     /**
-     * Obtiene el número de pedidos pendientes.
+     * Obtiene el numero de pedidos pendientes.
      * 
      * @return el conteo de pedidos pendientes
      */
@@ -147,7 +148,7 @@ public class GestorPedidos {
     }
     
     /**
-     * Verifica si un pedido puede ser facturado (está pendiente y tiene productos).
+     * Verifica si un pedido puede ser facturado (esta pendiente y tiene productos).
      * 
      * @param idPedido el ID del pedido a verificar
      * @return true si el pedido puede ser facturado, false en caso contrario

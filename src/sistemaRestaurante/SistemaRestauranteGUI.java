@@ -15,7 +15,7 @@ import java.util.List;
  * Utiliza los servicios separados para la lógica de negocio y proporciona
  * una interfaz de usuario intuitiva para gestionar productos, pedidos y facturas.
  * 
- * @author José Castrellón
+ * @author Grupo 1 Desarrollo Software
  * @version 2.0
  * @since 2025
  */
@@ -406,7 +406,7 @@ public class SistemaRestauranteGUI extends JFrame {
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
         
-        JButton btnSalir = new JButton("🚪 SALIR DEL SISTEMA");
+        JButton btnSalir = new JButton("SALIR DEL SISTEMA");
         btnSalir.setBackground(new Color(231, 76, 60));
         btnSalir.setForeground(Color.WHITE);
         btnSalir.setFont(new Font("Arial", Font.BOLD, 16));
@@ -683,7 +683,7 @@ public class SistemaRestauranteGUI extends JFrame {
                 Bebida bebida = (Bebida) producto;
                 modelProductos.addRow(new Object[]{
                     bebida.getNombre(),
-                    "Bebida (" + bebida.getTamaño() + ")",
+                    "Bebida (" + bebida.getTamano() + ")",
                     String.format("$%.2f", bebida.calcularPrecio()),
                     bebida.isConAlcohol() ? "Con alcohol" : "Sin alcohol"
                 });

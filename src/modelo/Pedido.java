@@ -9,19 +9,19 @@ import java.util.List;
  * Un pedido contiene una lista de productos y gestiona su estado.
  * Implementa el principio de encapsulamiento en POO.
  * 
- * @author Ing. Sistema Restaurante
- * @version 2.0
- * @since 2024
+ * @author Grupo 1 Desarrollo Software
+ * @version 2.1
+ * @since 2025
  */
 public class Pedido {
     
     /**
-     * Contador estático para generar IDs únicos automáticamente.
+     * Contador estatico para generar IDs unicos automaticamente.
      */
     private static int contadorId = 1;
     
     /**
-     * ID único del pedido.
+     * ID unico del pedido.
      */
     private int id;
     
@@ -31,7 +31,7 @@ public class Pedido {
     private List<Producto> productos;
     
     /**
-     * Fecha y hora en que se creó el pedido.
+     * Fecha y hora en que se creo el pedido.
      */
     private LocalDateTime fecha;
     
@@ -42,7 +42,7 @@ public class Pedido {
     
     /**
      * Constructor para crear un nuevo Pedido.
-     * Asigna automáticamente un ID único y establece la fecha actual.
+     * Asigna automaticamente un ID unico y establece la fecha actual.
      * Inicializa el estado como "pendiente".
      */
     public Pedido() {
@@ -79,7 +79,7 @@ public class Pedido {
     }
     
     /**
-     * Obtiene el ID único del pedido.
+     * Obtiene el ID unico del pedido.
      * 
      * @return El ID del pedido
      */
@@ -97,9 +97,9 @@ public class Pedido {
     }
     
     /**
-     * Obtiene la fecha y hora en que se creó el pedido.
+     * Obtiene la fecha y hora en que se creo el pedido.
      * 
-     * @return La fecha de creación del pedido
+     * @return La fecha de creacion del pedido
      */
     public LocalDateTime getFecha() {
         return fecha;
@@ -124,8 +124,8 @@ public class Pedido {
     }
     
     /**
-     * Representación en String del pedido.
-     * Muestra información resumida del pedido.
+     * Representacion en String del pedido.
+     * Muestra informacion resumida del pedido.
      * 
      * @return String con formato que muestra ID, total y estado
      */
@@ -136,7 +136,7 @@ public class Pedido {
     }
     
     /**
-     * Verifica si el pedido está vacío (no tiene productos).
+     * Verifica si el pedido esta vacio (no tiene productos).
      * 
      * @return true si el pedido no tiene productos, false en caso contrario
      */
@@ -147,7 +147,7 @@ public class Pedido {
     /**
      * Obtiene la cantidad de productos en el pedido.
      * 
-     * @return El número de productos en el pedido
+     * @return El numero de productos en el pedido
      */
     public int getCantidadProductos() {
         return productos.size();

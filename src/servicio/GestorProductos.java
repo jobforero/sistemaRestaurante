@@ -9,10 +9,10 @@ import java.util.List;
 
 /**
  * Clase servicio para gestionar todas las operaciones relacionadas con productos.
- * Proporciona métodos para agregar, buscar y administrar productos del restaurante.
+ * Proporciona metodos para agregar, buscar y administrar productos del restaurante.
  * 
- * @author José Castrellón
- * @version 2.0
+ * @author Grupo 1 Desarrollo Software
+ * @version 2.1
  * @since 2025
  */
 public class GestorProductos {
@@ -42,7 +42,7 @@ public class GestorProductos {
      * @param precio el precio de la comida
      * @param tipo el tipo de comida (entrada, principal, postre)
      * @param esVegetariano indica si la comida es vegetariana
-     * @throws IllegalArgumentException si el precio no es positivo o el nombre está vacío
+     * @throws IllegalArgumentException si el precio no es positivo o el nombre esta vacio
      */
     public void agregarComida(String nombre, double precio, String tipo, boolean esVegetariano) {
         validarProducto(nombre, precio);
@@ -54,13 +54,13 @@ public class GestorProductos {
      * 
      * @param nombre el nombre de la bebida
      * @param precio el precio base de la bebida
-     * @param tamaño el tamaño de la bebida (pequeño, mediano, grande)
+     * @param tamano el tamano de la bebida (pequeno, mediano, grande)
      * @param conAlcohol indica si la bebida contiene alcohol
-     * @throws IllegalArgumentException si el precio no es positivo o el nombre está vacío
+     * @throws IllegalArgumentException si el precio no es positivo o el nombre esta vacio
      */
-    public void agregarBebida(String nombre, double precio, String tamaño, boolean conAlcohol) {
+    public void agregarBebida(String nombre, double precio, String tamano, boolean conAlcohol) {
         validarProducto(nombre, precio);
-        productosDisponibles.add(new Bebida(nombre, precio, tamaño, conAlcohol));
+        productosDisponibles.add(new Bebida(nombre, precio, tamano, conAlcohol));
     }
     
     /**
@@ -68,11 +68,11 @@ public class GestorProductos {
      * 
      * @param nombre el nombre del combo
      * @param descuento el porcentaje de descuento del combo
-     * @throws IllegalArgumentException si el descuento no está entre 0 y 100 o el nombre está vacío
+     * @throws IllegalArgumentException si el descuento no esta entre 0 y 100 o el nombre esta vacio
      */
     public void agregarCombo(String nombre, double descuento) {
         if (nombre == null || nombre.trim().isEmpty()) {
-            throw new IllegalArgumentException("El nombre no puede estar vacío.");
+            throw new IllegalArgumentException("El nombre no puede estar vacio.");
         }
         if (descuento < 0 || descuento > 100) {
             throw new IllegalArgumentException("El descuento debe estar entre 0 y 100%.");
@@ -122,7 +122,7 @@ public class GestorProductos {
     }
     
     /**
-     * Obtiene el número total de productos disponibles.
+     * Obtiene el numero total de productos disponibles.
      * 
      * @return el conteo de productos disponibles
      */
@@ -131,15 +131,15 @@ public class GestorProductos {
     }
     
     /**
-     * Valida los datos básicos de un producto antes de agregarlo.
+     * Valida los datos basicos de un producto antes de agregarlo.
      * 
      * @param nombre el nombre del producto
      * @param precio el precio del producto
-     * @throws IllegalArgumentException si la validación falla
+     * @throws IllegalArgumentException si la validacion falla
      */
     private void validarProducto(String nombre, double precio) {
         if (nombre == null || nombre.trim().isEmpty()) {
-            throw new IllegalArgumentException("El nombre no puede estar vacío.");
+            throw new IllegalArgumentException("El nombre no puede estar vacio.");
         }
         if (precio <= 0) {
             throw new IllegalArgumentException("El precio debe ser positivo.");
@@ -147,19 +147,19 @@ public class GestorProductos {
     }
     
     /**
-     * Inicializa el sistema con productos de ejemplo para demostración.
+     * Inicializa el sistema con productos de ejemplo para demostracion.
      */
     private void inicializarProductosEjemplo() {
         // Comidas de ejemplo
-        agregarComida("Hamburguesa Clásica", 12.99, "principal", false);
-        agregarComida("Ensalada César", 8.50, "entrada", true);
+        agregarComida("Hamburguesa Clasica", 12.99, "principal", false);
+        agregarComida("Ensalada Cesar", 8.50, "entrada", true);
         agregarComida("Pizza Margarita", 15.99, "principal", true);
-        agregarComida("Tiramisú", 6.99, "postre", true);
+        agregarComida("Tiramisu", 6.99, "postre", true);
         
         // Bebidas de ejemplo
         agregarBebida("Coca-Cola", 2.50, "mediano", false);
         agregarBebida("Cerveza Artesanal", 5.99, "grande", true);
-        agregarBebida("Agua Mineral", 1.50, "pequeño", false);
+        agregarBebida("Agua Mineral", 1.50, "pequeno", false);
         
         // Combos de ejemplo
         Combo comboFamiliar = new Combo("Combo Familiar", 15);

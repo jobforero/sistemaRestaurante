@@ -6,21 +6,21 @@ import java.time.format.DateTimeFormatter;
 /**
  * Clase que representa una Factura en el sistema del restaurante.
  * Una factura se genera a partir de un pedido completado.
- * Implementa el principio de composición al contener un Pedido.
+ * Implementa el principio de composicion al contener un Pedido.
  * 
- * @author Ing. Sistema Restaurante
- * @version 2.0
- * @since 2024
+ * @author Grupo 1 Desarrollo Software
+ * @version 2.1
+ * @since 2025
  */
 public class Factura {
     
     /**
-     * Contador estático para generar números de factura únicos automáticamente.
+     * Contador estatico para generar numeros de factura unicos automaticamente.
      */
     private static int contadorNumero = 1;
     
     /**
-     * Número único de la factura.
+     * Numero unico de la factura.
      */
     private int numero;
     
@@ -35,7 +35,7 @@ public class Factura {
     private String cliente;
     
     /**
-     * Fecha y hora de emisión de la factura.
+     * Fecha y hora de emision de la factura.
      */
     private LocalDateTime fecha;
     
@@ -48,15 +48,15 @@ public class Factura {
      * Constructor para crear una nueva Factura.
      * 
      * @param pedido El pedido a facturar, no puede ser nulo
-     * @param cliente El nombre del cliente, no puede ser nulo o vacío
-     * @throws IllegalArgumentException si el pedido es nulo o el cliente está vacío
+     * @param cliente El nombre del cliente, no puede ser nulo o vacio
+     * @throws IllegalArgumentException si el pedido es nulo o el cliente esta vacio
      */
     public Factura(Pedido pedido, String cliente) {
         if (pedido == null) {
             throw new IllegalArgumentException("El pedido no puede ser nulo.");
         }
         if (cliente == null || cliente.trim().isEmpty()) {
-            throw new IllegalArgumentException("El nombre del cliente no puede estar vacío.");
+            throw new IllegalArgumentException("El nombre del cliente no puede estar vacio.");
         }
         
         this.numero = contadorNumero++;
@@ -94,9 +94,9 @@ public class Factura {
     }
     
     /**
-     * Obtiene el número único de la factura.
+     * Obtiene el numero unico de la factura.
      * 
-     * @return El número de factura
+     * @return El numero de factura
      */
     public int getNumero() {
         return numero;
@@ -121,7 +121,7 @@ public class Factura {
     }
     
     /**
-     * Obtiene la fecha de emisión de la factura.
+     * Obtiene la fecha de emision de la factura.
      * 
      * @return La fecha de la factura
      */
@@ -139,10 +139,10 @@ public class Factura {
     }
     
     /**
-     * Representación en String de la factura.
-     * Muestra información resumida de la factura.
+     * Representacion en String de la factura.
+     * Muestra informacion resumida de la factura.
      * 
-     * @return String con información básica de la factura
+     * @return String con informacion basica de la factura
      */
     @Override
     public String toString() {

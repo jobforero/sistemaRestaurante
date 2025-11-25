@@ -5,11 +5,11 @@ import java.util.List;
 
 /**
  * Subclase que representa un Combo de productos en el restaurante.
- * Un Combo contiene múltiples productos y aplica un descuento al total.
- * Implementa el principio de composición en POO.
+ * Un Combo contiene multiples productos y aplica un descuento al total.
+ * Implementa el principio de composicion en POO.
  * 
- * @author José Castrellón
- * @version 2.0
+ * @author Grupo 1 Desarrollo Software
+ * @version 2.1
  * @since 2025
  * @see Producto
  */
@@ -28,11 +28,11 @@ public class Combo extends Producto {
     /**
      * Constructor para crear un nuevo Combo.
      * 
-     * @param nombre El nombre del combo, no puede ser nulo o vacío
+     * @param nombre El nombre del combo, no puede ser nulo o vacio
      * @param descuento El porcentaje de descuento aplicado al combo (0-100)
      */
     public Combo(String nombre, double descuento) {
-        super(nombre, 0); // Precio se calculará dinámicamente
+        super(nombre, 0); // Precio se calculara dinamicamente
         this.productos = new ArrayList<>();
         this.descuento = descuento;
     }
@@ -83,7 +83,7 @@ public class Combo extends Producto {
     }
     
     /**
-     * Representación detallada en String del combo.
+     * Representacion detallada en String del combo.
      * Muestra el descuento aplicado y el precio final.
      * 
      * @return String con formato que incluye nombre, descuento y precio final

@@ -1,12 +1,12 @@
 package modelo;
 
 /**
- * Clase abstracta que representa un Producto genérico en el sistema del restaurante.
+ * Clase abstracta que representa un Producto generico en el sistema del restaurante.
  * Define la estructura base para todos los tipos de productos disponibles.
- * Esta clase implementa el principio de abstracción en POO.
+ * Esta clase implementa el principio de abstraccion en POO.
  * 
-  * @author José Castrellón
- * @version 2.0
+ * @author Grupo 1 Desarrollo Software
+ * @version 2.1
  * @since 2025
  */
 public abstract class Producto {
@@ -24,7 +24,7 @@ public abstract class Producto {
     /**
      * Constructor para crear un nuevo Producto.
      * 
-     * @param nombre El nombre del producto, no puede ser nulo o vacío
+     * @param nombre El nombre del producto, no puede ser nulo o vacio
      * @param precio El precio base del producto, debe ser positivo
      */
     public Producto(String nombre, double precio) {
@@ -33,8 +33,8 @@ public abstract class Producto {
     }
     
     /**
-     * Método abstracto para calcular el precio final del producto.
-     * Debe ser implementado por las subclases para aplicar lógica específica
+     * Metodo abstracto para calcular el precio final del producto.
+     * Debe ser implementado por las subclases para aplicar logica especifica
      * como descuentos, recargos, etc. (Principio de polimorfismo).
      * 
      * @return El precio final calculado del producto
@@ -60,7 +60,7 @@ public abstract class Producto {
     }
     
     /**
-     * Representación en String del producto.
+     * Representacion en String del producto.
      * Muestra el nombre y precio formateado del producto.
      * 
      * @return String con formato que muestra nombre y precio

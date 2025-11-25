@@ -2,12 +2,12 @@ package modelo;
 
 /**
  * Subclase que representa un producto de tipo Comida en el restaurante.
- * Hereda de la clase Producto y añade características específicas de comida.
+ * Hereda de la clase Producto y anade caracteristicas especificas de comida.
  * Implementa el principio de herencia en POO.
  * 
- * @author José Castrellón
- * @version 2.0
- * @since 202
+ * @author Grupo 1 Desarrollo Software
+ * @version 2.1
+ * @since 2025
  * @see Producto
  */
 public class Comida extends Producto {
@@ -25,7 +25,7 @@ public class Comida extends Producto {
     /**
      * Constructor para crear una nueva Comida.
      * 
-     * @param nombre El nombre de la comida, no puede ser nulo o vacío
+     * @param nombre El nombre de la comida, no puede ser nulo o vacio
      * @param precio El precio base de la comida, debe ser positivo
      * @param tipo El tipo de comida (entrada, principal, postre)
      * @param esVegetariano Indica si la comida es vegetariana
@@ -66,8 +66,8 @@ public class Comida extends Producto {
     }
     
     /**
-     * Representación detallada en String de la comida.
-     * Incluye información sobre si es vegetariana.
+     * Representacion detallada en String de la comida.
+     * Incluye informacion sobre si es vegetariana.
      * 
      * @return String con formato que incluye nombre, tipo, precio y si es vegetariana
      */
