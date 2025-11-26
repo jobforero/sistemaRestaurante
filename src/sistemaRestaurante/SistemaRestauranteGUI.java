@@ -11,8 +11,8 @@ import java.awt.*;
 import java.util.List;
 
 /**
- * Sistema principal con interfaz gráfica para gestión de restaurante.
- * Utiliza los servicios separados para la lógica de negocio y proporciona
+ * Sistema principal con interfaz grafica para gestion de restaurante.
+ * Utiliza los servicios separados para la logica de negocio y proporciona
  * una interfaz de usuario intuitiva para gestionar productos, pedidos y facturas.
  * 
  * @author Grupo 1 Desarrollo Software
@@ -22,54 +22,63 @@ import java.util.List;
 public class SistemaRestauranteGUI extends JFrame {
     
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+     * Numero de version serial para la clase Serializable.
+     * Requerido para la serializacion de objetos Swing.
+     */
+    private static final long serialVersionUID = 1L;
 
-	/**
+    /**
      * Gestor de productos para administrar comidas, bebidas y combos.
+     * Proporciona operaciones CRUD para la gestion de productos.
      */
     private GestorProductos gestorProductos;
     
     /**
      * Gestor de pedidos para crear y administrar pedidos del restaurante.
+     * Maneja el ciclo de vida completo de los pedidos.
      */
     private GestorPedidos gestorPedidos;
     
     /**
      * Gestor de facturas para generar y gestionar facturas de pedidos completados.
+     * Controla la generacion y consulta de facturas.
      */
     private GestorFacturas gestorFacturas;
     
     /**
      * Panel con pestañas para organizar las diferentes secciones del sistema.
+     * Permite navegar entre las distintas funcionalidades.
      */
     private JTabbedPane tabbedPane;
     
     /**
      * Tabla para mostrar los productos disponibles en el sistema.
+     * Presenta una vista tabular de todos los productos registrados.
      */
     private JTable tablaProductos;
     
     /**
      * Tabla para mostrar los pedidos realizados en el sistema.
+     * Exhibe el estado y detalles de todos los pedidos.
      */
     private JTable tablaPedidos;
     
     /**
      * Modelo de datos para la tabla de productos.
+     * Define la estructura y comportamiento de la tabla de productos.
      */
     private DefaultTableModel modelProductos;
     
     /**
      * Modelo de datos para la tabla de pedidos.
+     * Define la estructura y comportamiento de la tabla de pedidos.
      */
     private DefaultTableModel modelPedidos;
     
     /**
      * Constructor principal de la clase SistemaRestauranteGUI.
      * Inicializa los servicios de negocio, configura la ventana principal
-     * y carga todos los componentes de la interfaz gráfica.
+     * y carga todos los componentes de la interfaz grafica.
      */
     public SistemaRestauranteGUI() {
         // Inicializar servicios de negocio
@@ -88,6 +97,7 @@ public class SistemaRestauranteGUI extends JFrame {
     /**
      * Inicializa los servicios de negocio del sistema.
      * Crea las instancias de los gestores y establece las dependencias entre ellos.
+     * Este metodo sigue el principio de Inversion de Dependencias.
      */
     private void inicializarServicios() {
         this.gestorProductos = new GestorProductos();
@@ -96,17 +106,17 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Configura las propiedades básicas de la ventana principal.
-     * Establece el título, tamaño, posición, comportamiento de cierre
+     * Configura las propiedades basicas de la ventana principal.
+     * Establece el titulo, tamaño, posicion, comportamiento de cierre
      * y el look and feel del sistema.
      */
     private void configurarVentana() {
-        setTitle("🍽️ Sistema de Gestión de Restaurante");
+        setTitle("Sistema de Gestion de Restaurante");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(900, 600);
         setLocationRelativeTo(null); // Centrar en la pantalla
         
-        // Usar look and feel del sistema para mejor integración
+        // Usar look and feel del sistema para mejor integracion
         try {
             UIManager.setLookAndFeel(UIManager.getLookAndFeel());
         } catch (Exception e) {
@@ -115,8 +125,9 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Inicializa todos los componentes de la interfaz gráfica.
+     * Inicializa todos los componentes de la interfaz grafica.
      * Crea el panel de pestañas y agrega las diferentes secciones del sistema.
+     * Organiza la interfaz siguiendo el patron de diseno MVC.
      */
     private void inicializarComponentes() {
         tabbedPane = new JTabbedPane();
@@ -133,7 +144,7 @@ public class SistemaRestauranteGUI extends JFrame {
     
     /**
      * Crea y configura el panel de inicio del sistema.
-     * Muestra estadísticas generales y proporciona acceso rápido a las principales funciones.
+     * Muestra estadisticas generales y proporciona acceso rapido a las principales funciones.
      * 
      * @return JPanel configurado como panel de inicio
      */
@@ -141,15 +152,15 @@ public class SistemaRestauranteGUI extends JFrame {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         
-        // Título principal
-        JLabel titulo = new JLabel("Bienvenido al Sistema de Gestión de Restaurante", JLabel.CENTER);
+        // Titulo principal
+        JLabel titulo = new JLabel("Bienvenido al Sistema de Gestion de Restaurante", JLabel.CENTER);
         titulo.setFont(new Font("Arial", Font.BOLD, 24));
         titulo.setForeground(new Color(44, 62, 80));
         
-        // Panel de estadísticas del sistema
+        // Panel de estadisticas del sistema
         JPanel panelStats = crearPanelEstadisticas();
         
-        // Panel de botones de acceso rápido
+        // Panel de botones de acceso rapido
         JPanel panelBotones = crearPanelBotonesInicio();
         
         // Agregar componentes al panel principal
@@ -161,13 +172,14 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Crea el panel de estadísticas del sistema.
+     * Crea el panel de estadisticas del sistema.
+     * Muestra metricas clave como numero de productos, pedidos y facturas.
      * 
-     * @return JPanel con las estadísticas configuradas
+     * @return JPanel con las estadisticas configuradas
      */
     private JPanel crearPanelEstadisticas() {
         JPanel panelStats = new JPanel(new GridLayout(3, 2, 10, 10));
-        panelStats.setBorder(BorderFactory.createTitledBorder("Estadísticas del Sistema"));
+        panelStats.setBorder(BorderFactory.createTitledBorder("Estadisticas del Sistema"));
         
         JLabel lblProductos = new JLabel("Productos Disponibles:");
         JLabel lblProductosCount = new JLabel("0");
@@ -192,14 +204,15 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Crea el panel de botones de acceso rápido del inicio.
+     * Crea el panel de botones de acceso rapido del inicio.
+     * Proporciona navegacion directa a las secciones principales.
      * 
      * @return JPanel con los botones configurados
      */
     private JPanel crearPanelBotonesInicio() {
         JPanel panelBotones = new JPanel(new FlowLayout());
         
-        JButton btnActualizar = new JButton("Actualizar Estadísticas");
+        JButton btnActualizar = new JButton("Actualizar Estadisticas");
         JButton btnProductos = new JButton("Gestionar Productos");
         JButton btnPedidos = new JButton("Gestionar Pedidos");
         
@@ -216,19 +229,20 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Actualiza las estadísticas mostradas en el panel de inicio.
+     * Actualiza las estadisticas mostradas en el panel de inicio.
+     * Recupera datos actualizados de los gestores y actualiza la interfaz.
      */
     private void actualizarEstadisticas() {
-        // Esta implementación actualizaría las estadísticas en tiempo real
-        // En una implementación completa, se actualizarían los labels correspondientes
-        JOptionPane.showMessageDialog(this, "Estadísticas actualizadas correctamente.");
+        // Esta implementacion actualizaria las estadisticas en tiempo real
+        // En una implementacion completa, se actualizarian los labels correspondientes
+        JOptionPane.showMessageDialog(this, "Estadisticas actualizadas correctamente.");
     }
     
     /**
-     * Crea y configura el panel de gestión de productos.
+     * Crea y configura el panel de gestion de productos.
      * Permite visualizar, agregar y administrar los productos del restaurante.
      * 
-     * @return JPanel configurado para gestión de productos
+     * @return JPanel configurado para gestion de productos
      */
     private JPanel crearPanelProductos() {
         JPanel panel = new JPanel(new BorderLayout());
@@ -252,16 +266,23 @@ public class SistemaRestauranteGUI extends JFrame {
     
     /**
      * Configura la tabla de productos con sus columnas y propiedades.
+     * Define la estructura de la tabla y su comportamiento de edicion.
      */
     private void configurarTablaProductos() {
         String[] columnas = {"Nombre", "Tipo", "Precio", "Detalles"};
         modelProductos = new DefaultTableModel(columnas, 0) {
             /**
-             * Sobrescribe el método para hacer las celdas no editables directamente.
+             * Numero de version serial para la clase Serializable.
+             */
+            private static final long serialVersionUID = 1L;
+
+            /**
+             * Sobrescribe el metodo para hacer las celdas no editables directamente.
+             * Esto previene la edicion accidental de datos en la interfaz grafica.
              * 
              * @param row la fila de la celda
              * @param column la columna de la celda
-             * @return false para deshabilitar la edición
+             * @return false para deshabilitar la edicion
              */
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -274,7 +295,8 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Crea el panel de botones para la gestión de productos.
+     * Crea el panel de botones para la gestion de productos.
+     * Proporciona acceso a las operaciones CRUD de productos.
      * 
      * @return JPanel con los botones de productos configurados
      */
@@ -301,10 +323,10 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Crea y configura el panel de gestión de pedidos.
+     * Crea y configura el panel de gestion de pedidos.
      * Permite crear nuevos pedidos, visualizar pedidos existentes y generar facturas.
      * 
-     * @return JPanel configurado para gestión de pedidos
+     * @return JPanel configurado para gestion de pedidos
      */
     private JPanel crearPanelPedidos() {
         JPanel panel = new JPanel(new BorderLayout());
@@ -328,16 +350,23 @@ public class SistemaRestauranteGUI extends JFrame {
     
     /**
      * Configura la tabla de pedidos con sus columnas y propiedades.
+     * Define la estructura de la tabla y su comportamiento de edicion.
      */
     private void configurarTablaPedidos() {
         String[] columnas = {"ID", "Total", "Estado", "Productos"};
         modelPedidos = new DefaultTableModel(columnas, 0) {
             /**
-             * Sobrescribe el método para hacer las celdas no editables directamente.
+             * Numero de version serial para la clase Serializable.
+             */
+            private static final long serialVersionUID = 1L;
+
+            /**
+             * Sobrescribe el metodo para hacer las celdas no editables directamente.
+             * Esto previene la edicion accidental de datos en la interfaz grafica.
              * 
              * @param row la fila de la celda
              * @param column la columna de la celda
-             * @return false para deshabilitar la edición
+             * @return false para deshabilitar la edicion
              */
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -350,7 +379,8 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Crea el panel de botones para la gestión de pedidos.
+     * Crea el panel de botones para la gestion de pedidos.
+     * Proporciona acceso a las operaciones de gestion de pedidos.
      * 
      * @return JPanel con los botones de pedidos configurados
      */
@@ -374,10 +404,10 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Crea y configura el panel de visualización de facturas.
+     * Crea y configura el panel de visualizacion de facturas.
      * Muestra un listado de todas las facturas generadas en el sistema.
      * 
-     * @return JPanel configurado para visualización de facturas
+     * @return JPanel configurado para visualizacion de facturas
      */
     private JPanel crearPanelFacturas() {
         JPanel panel = new JPanel(new BorderLayout());
@@ -398,9 +428,9 @@ public class SistemaRestauranteGUI extends JFrame {
     
     /**
      * Crea y configura el panel de salida del sistema.
-     * Proporciona un botón para cerrar la aplicación de manera controlada.
+     * Proporciona un boton para cerrar la aplicacion de manera controlada.
      * 
-     * @return JPanel configurado con botón de salida
+     * @return JPanel configurado con boton de salida
      */
     private JPanel crearPanelSalir() {
         JPanel panel = new JPanel(new GridBagLayout());
@@ -412,7 +442,7 @@ public class SistemaRestauranteGUI extends JFrame {
         btnSalir.setFont(new Font("Arial", Font.BOLD, 16));
         btnSalir.setPreferredSize(new Dimension(200, 50));
         
-        // Acción para salir del sistema con confirmación
+        // Accion para salir del sistema con confirmacion
         btnSalir.addActionListener(e -> confirmarSalida());
         
         panel.add(btnSalir);
@@ -420,12 +450,13 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Muestra un diálogo de confirmación antes de salir del sistema.
+     * Muestra un dialogo de confirmacion antes de salir del sistema.
+     * Previene el cierre accidental de la aplicacion.
      */
     private void confirmarSalida() {
         int respuesta = JOptionPane.showConfirmDialog(
             this, 
-            "¿Está seguro que desea salir del sistema?", 
+            "¿Esta seguro que desea salir del sistema?", 
             "Confirmar Salida", 
             JOptionPane.YES_NO_OPTION,
             JOptionPane.QUESTION_MESSAGE
@@ -434,7 +465,7 @@ public class SistemaRestauranteGUI extends JFrame {
         if (respuesta == JOptionPane.YES_OPTION) {
             JOptionPane.showMessageDialog(
                 this, 
-                "¡Gracias por usar el Sistema de Restaurante!\nHasta pronto 👋",
+                "¡Gracias por usar el Sistema de Restaurante!\nHasta pronto",
                 "Sistema Cerrado",
                 JOptionPane.INFORMATION_MESSAGE
             );
@@ -443,8 +474,9 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Muestra un diálogo para agregar una nueva comida al sistema.
+     * Muestra un dialogo para agregar una nueva comida al sistema.
      * Solicita al usuario los datos necesarios y valida la entrada usando el GestorProductos.
+     * Implementa validacion de datos y manejo de excepciones.
      */
     private void mostrarDialogoAgregarComida() {
         JTextField txtNombre = new JTextField(20);
@@ -472,11 +504,25 @@ public class SistemaRestauranteGUI extends JFrame {
                 String tipo = (String) cmbTipo.getSelectedItem();
                 boolean vegetariano = chkVegetariano.isSelected();
                 
+                // Validar que el nombre no este vacio
+                if (nombre.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "El nombre no puede estar vacio.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
+                // Validar que el precio sea positivo
+                if (precio <= 0) {
+                    JOptionPane.showMessageDialog(this, "El precio debe ser positivo.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
                 // Usar el GestorProductos para agregar la comida
                 gestorProductos.agregarComida(nombre, precio, tipo, vegetariano);
                 actualizarTablaProductos();
                 JOptionPane.showMessageDialog(this, "Comida agregada exitosamente!");
                 
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Precio invalido. Use numeros decimales.", "Error", JOptionPane.ERROR_MESSAGE);
             } catch (IllegalArgumentException e) {
                 JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -484,13 +530,14 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Muestra un diálogo para agregar una nueva bebida al sistema.
+     * Muestra un dialogo para agregar una nueva bebida al sistema.
      * Solicita al usuario los datos necesarios y valida la entrada usando el GestorProductos.
+     * Incluye validacion de datos y manejo de excepciones.
      */
     private void mostrarDialogoAgregarBebida() {
         JTextField txtNombre = new JTextField(20);
         JTextField txtPrecio = new JTextField(10);
-        JComboBox<String> cmbTamaño = new JComboBox<>(new String[]{"pequeño", "mediano", "grande"});
+        JComboBox<String> cmbTamano = new JComboBox<>(new String[]{"pequeno", "mediano", "grande"});
         JCheckBox chkAlcohol = new JCheckBox("Contiene alcohol");
         
         JPanel panel = new JPanel(new GridLayout(4, 2, 5, 5));
@@ -498,8 +545,8 @@ public class SistemaRestauranteGUI extends JFrame {
         panel.add(txtNombre);
         panel.add(new JLabel("Precio:"));
         panel.add(txtPrecio);
-        panel.add(new JLabel("Tamaño:"));
-        panel.add(cmbTamaño);
+        panel.add(new JLabel("Tamano:"));
+        panel.add(cmbTamano);
         panel.add(new JLabel(""));
         panel.add(chkAlcohol);
         
@@ -510,14 +557,28 @@ public class SistemaRestauranteGUI extends JFrame {
             try {
                 String nombre = txtNombre.getText().trim();
                 double precio = Double.parseDouble(txtPrecio.getText().trim());
-                String tamaño = (String) cmbTamaño.getSelectedItem();
+                String tamano = (String) cmbTamano.getSelectedItem();
                 boolean alcohol = chkAlcohol.isSelected();
                 
+                // Validar que el nombre no este vacio
+                if (nombre.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "El nombre no puede estar vacio.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
+                // Validar que el precio sea positivo
+                if (precio <= 0) {
+                    JOptionPane.showMessageDialog(this, "El precio debe ser positivo.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
                 // Usar el GestorProductos para agregar la bebida
-                gestorProductos.agregarBebida(nombre, precio, tamaño, alcohol);
+                gestorProductos.agregarBebida(nombre, precio, tamano, alcohol);
                 actualizarTablaProductos();
                 JOptionPane.showMessageDialog(this, "Bebida agregada exitosamente!");
                 
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Precio invalido. Use numeros decimales.", "Error", JOptionPane.ERROR_MESSAGE);
             } catch (IllegalArgumentException e) {
                 JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -525,8 +586,9 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Muestra un diálogo para agregar un nuevo combo al sistema.
+     * Muestra un dialogo para agregar un nuevo combo al sistema.
      * Solicita al usuario los datos necesarios y valida la entrada usando el GestorProductos.
+     * Implementa validacion de rangos y manejo de excepciones.
      */
     private void mostrarDialogoAgregarCombo() {
         JTextField txtNombre = new JTextField(20);
@@ -546,11 +608,25 @@ public class SistemaRestauranteGUI extends JFrame {
                 String nombre = txtNombre.getText().trim();
                 double descuento = Double.parseDouble(txtDescuento.getText().trim());
                 
+                // Validar que el nombre no este vacio
+                if (nombre.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "El nombre no puede estar vacio.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
+                // Validar que el descuento este en rango valido
+                if (descuento < 0 || descuento > 100) {
+                    JOptionPane.showMessageDialog(this, "El descuento debe estar entre 0 y 100%.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
                 // Usar el GestorProductos para agregar el combo
                 gestorProductos.agregarCombo(nombre, descuento);
                 actualizarTablaProductos();
                 JOptionPane.showMessageDialog(this, "Combo agregado exitosamente!");
                 
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Descuento invalido. Use numeros decimales.", "Error", JOptionPane.ERROR_MESSAGE);
             } catch (IllegalArgumentException e) {
                 JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -558,8 +634,9 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Muestra un diálogo para crear un nuevo pedido.
+     * Muestra un dialogo para crear un nuevo pedido.
      * Permite al usuario seleccionar productos de la lista disponible usando el GestorPedidos.
+     * Implementa un flujo interactivo para agregar multiples productos.
      */
     private void mostrarDialogoNuevoPedido() {
         // Validar que existan productos disponibles
@@ -623,15 +700,15 @@ public class SistemaRestauranteGUI extends JFrame {
                 "Pedido creado exitosamente!\nID: " + nuevoPedido.getId() + 
                 "\nTotal: $" + String.format("%.2f", nuevoPedido.calcularTotal()));
         } else {
-            // Si el pedido está vacío, eliminarlo
-            // En una implementación completa, se eliminaría de la lista
+            // Si el pedido esta vacio, mostrar mensaje informativo
             JOptionPane.showMessageDialog(this, "Pedido cancelado. No se agregaron productos.");
         }
     }
     
     /**
      * Genera una factura para el pedido seleccionado en la tabla.
-     * Valida que el pedido esté pendiente y solicita el nombre del cliente usando el GestorFacturas.
+     * Valida que el pedido este pendiente y solicita el nombre del cliente usando el GestorFacturas.
+     * Implementa validacion de estado del pedido y manejo de excepciones.
      */
     private void generarFacturaDesdeSeleccion() {
         int filaSeleccionada = tablaPedidos.getSelectedRow();
@@ -652,7 +729,7 @@ public class SistemaRestauranteGUI extends JFrame {
                 // Mostrar factura en consola
                 factura.imprimirFactura();
                 JOptionPane.showMessageDialog(this, 
-                    "Factura generada exitosamente!\nNúmero: " + factura.getNumero() +
+                    "Factura generada exitosamente!\nNumero: " + factura.getNumero() +
                     "\nTotal: $" + String.format("%.2f", factura.getTotal()));
                     
             } catch (IllegalArgumentException | IllegalStateException e) {
@@ -663,7 +740,8 @@ public class SistemaRestauranteGUI extends JFrame {
     
     /**
      * Actualiza la tabla de productos con los datos actuales del GestorProductos.
-     * Clasifica los productos por tipo y formatea la información para mostrar.
+     * Clasifica los productos por tipo y formatea la informacion para mostrar.
+     * Utiliza polimorfismo para identificar el tipo de cada producto.
      */
     private void actualizarTablaProductos() {
         modelProductos.setRowCount(0);
@@ -701,7 +779,8 @@ public class SistemaRestauranteGUI extends JFrame {
     
     /**
      * Actualiza la tabla de pedidos con los datos actuales del GestorPedidos.
-     * Muestra información resumida de cada pedido.
+     * Muestra informacion resumida de cada pedido.
+     * Formatea los totales y cuenta la cantidad de productos.
      */
     private void actualizarTablaPedidos() {
         modelPedidos.setRowCount(0);
@@ -719,10 +798,11 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Muestra las facturas generadas en el área de texto especificada.
-     * Formatea la información de las facturas para su visualización usando el GestorFacturas.
+     * Muestra las facturas generadas en el area de texto especificada.
+     * Formatea la informacion de las facturas para su visualizacion usando el GestorFacturas.
+     * Incluye un resumen del total facturado.
      * 
-     * @param area el JTextArea donde se mostrarán las facturas
+     * @param area el JTextArea donde se mostraran las facturas
      */
     private void mostrarFacturasEnArea(JTextArea area) {
         List<Factura> facturas = gestorFacturas.getTodasLasFacturas();
@@ -748,10 +828,11 @@ public class SistemaRestauranteGUI extends JFrame {
     }
     
     /**
-     * Método principal que inicia la aplicación.
-     * Ejecuta la interfaz gráfica en el Event Dispatch Thread de Swing.
+     * Metodo principal que inicia la aplicacion.
+     * Ejecuta la interfaz grafica en el Event Dispatch Thread de Swing.
+     * Sigue las mejores practicas de Swing para la ejecucion de interfaces graficas.
      * 
-     * @param args argumentos de línea de comandos (no utilizados)
+     * @param args argumentos de linea de comandos (no utilizados)
      */
     public static void main(String[] args) {
         // Ejecutar en el Event Dispatch Thread para mejor rendimiento

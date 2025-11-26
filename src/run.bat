@@ -21,7 +21,7 @@ javadoc -d docs ^
     -windowtitle "Sistema de Restaurante - Documentacion" ^
     -doctitle "<h1>Sistema de Gestion de Restaurante</h1><p>Sistema completo para gestion de productos, pedidos y facturas</p>" ^
     -header "<strong>Sistema Restaurante</strong>" ^
-    -bottom "Copyright &copy; 2024 - Todos los derechos reservados. Version 2.0" ^
+    -bottom "Copyright &copy; 2025 - Todos los derechos reservados. Version 2.0" ^
     -version ^
     -author ^
     -charset UTF-8 ^
